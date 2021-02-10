@@ -9,11 +9,11 @@ const { routerConfig } = require("./middleware/routerConfig");
 const { dbConnect } = require("./misc/mongoose");
 
 appConfig(app);
-// sessionConfig(app);
+sessionConfig(app);
 routerConfig(app);
 // partialsReg();
 dbConnect();
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`server on ${PORT}`);
 });
