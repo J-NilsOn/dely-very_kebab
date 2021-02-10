@@ -20,7 +20,7 @@ router
       const user = new User({ email, password, name, phone, city });
       await user.save();
       req.session.user = user.name;
-      res.redirect("/signUp");
+      res.redirect("/signup");
     }
   );
 
