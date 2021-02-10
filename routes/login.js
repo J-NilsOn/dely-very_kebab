@@ -10,13 +10,13 @@ router.route('/')
 
   .post(async (req, res) => {
     const { email, password } = req.body;
-    const user = await User.findOne({ email, password });
+    const user = await User.findOne({ email });
 
-    if (user) {
+    if (user && await bcrypt.compare(password, user.password))  {
       req.session.user = user.name;
       res.redirect('/');
     } else {
-      res.redirect('/login')
+      res.render('login', {mes: 'Incorrect login/password'});
     }
   })
     // app.post('/form', [
