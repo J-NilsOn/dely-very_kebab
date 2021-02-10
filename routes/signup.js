@@ -28,7 +28,7 @@ router
         city,
       });
       await user.save();
-      req.session.user = user.name;
+      req.session.email = user.email;
       res.redirect("/signup");
     }
   );
