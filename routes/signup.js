@@ -1,10 +1,13 @@
 const router = require("express").Router();
 // const { check, validationResult } = require("express-validator");
-const user = require("../models/user");
+const User = require("../models/user");
+const { sessionChecker } = require("../middleware/session");
+const bcrypt = require("bcrypt");
+const salt = 10;
 
 router
   .route("/")
-  .get((req, res) => {
+  .get(sessionChecker, (req, res) => {
     res.render("signup");
   })
   .post(
@@ -17,7 +20,13 @@ router
     async (req, res) => {
       const { email, password, name, phone, city } = req.body;
       console.log("2345234");
-      const user = new User({ email, password, name, phone, city });
+      const user = new User({
+        email,
+        password: await bcrypt.hash(password, salt),
+        name,
+        phone,
+        city,
+      });
       await user.save();
       req.session.user = user.name;
       res.redirect("/signup");
