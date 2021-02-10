@@ -24,7 +24,7 @@ module.exports.sessionConfig = (application) => {
 
 module.exports.sessionChecker = (req, res, next) => {
     if (req.session.user) {
-        res.redirect('/main');
+        res.redirect('/');
     } else {
         next()
     }
