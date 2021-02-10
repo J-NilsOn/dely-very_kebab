@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 module.exports.dbConnect = () => {
-    mongoose.connect('mongodb://localhost:27017/P2W2D3', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+  mongoose.connect("mongodb://localhost:27017/kebab", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 };
