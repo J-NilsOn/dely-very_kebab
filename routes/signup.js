@@ -27,6 +27,7 @@ router
           name,
           phone,
           city,
+          statusCourier: false,
         });
         await user.save();
         req.session.email = user.email;
@@ -35,7 +36,6 @@ router
         res.render("signup", { mes: "The user exists" });
       }
       // console.log("2345234");
-      
     }
   );
 

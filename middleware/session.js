@@ -1,8 +1,10 @@
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
+const mongoose = require("mongoose");
+const User = require("../models/user");
 
 const cookieCleaner = (req, res, next) => {
-  if (req.cookies.user_sid && !req.session.email) {
+  if (req.cookies?.user_sid && !req.session.email) {
     res.clearCookie("user_sid");
   }
   next();
@@ -32,10 +34,18 @@ module.exports.sessionChecker = (req, res, next) => {
   }
 };
 
-module.exports.sessionVariables = (req, res, next) => {
-  if (req.session.email) {
+module.exports.sessionVariables = async (req, res, next) => {
+  if (req.session?.email) {
     res.locals.login = true;
     res.locals.userName = req.session.email;
+
+    const user = await User.findOne({ email: req.session.email });
+
+    if (user.statusCourier) {
+      res.locals.courier = true;
+    } else {
+      res.locals.customer = true;
+    }
     next();
   } else {
     next();

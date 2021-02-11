@@ -13,11 +13,12 @@ router
   .post(async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    console.log(user);
+    // console.log(user);
 
     if (user && (await bcrypt.compare(password, user.password))) {
       req.session.email = user.email;
-      console.log("OK");
+      // console.log("OK");
+
       res.redirect("/");
     } else {
       res.render("login", { mes: "Incorrect login/password" });
