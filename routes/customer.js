@@ -3,8 +3,22 @@ const { sessionVariables } = require("../middleware/session");
 // const User = require("../models/user");
 
 router.route("/")
-  .get(sessionVariables, (req, res) => {
-    res.redirect('/');
+  .get(sessionVariables, async (req, res) => {
+
+  const orders = await Order.find();
+
+  orders.forEach((el) => {
+    const { 
+      components, 
+      statusBooked, 
+      adress, 
+      pricePrimary, 
+      priceDiscount } = el;
+
+    // divComp = document.qu
+  })
+
+    res.render('main', {components} );
   })
 // .post(async (req, res) => {
 //   const { email, password } = req.body;

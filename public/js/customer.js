@@ -1,34 +1,29 @@
-const bttns = document.querySelector('.buy');
-
-bttns.addEventListener('click', (e) => {
-  e.preventDefault();
-  
-})
+// const Order = require("../models/order");
 
 
 
+// const bttns = document.querySelector('.buy');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const { name, age } = e.target;
-    const response = await fetch('/user/add', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: name.value,
-            age: age.value
-        })
-    });
-    const user = await response.json();
+// bttns.addEventListener('click', (event) => {
+//   e.preventDefault();
 
-    const list = document.querySelector('#list');
 
-    const resp = await fetch('/template/card.hbs');
-    const hbs = await resp.text();
+//   const parent = event.target.parentElement;
+//   parent.remove();
 
-    const template = Handlebars.compile(hbs);
+// })
 
-    list.innerHTML += template(user)
-});
+
+
+// const orders = await Order.find();
+
+// orders.forEach((el) => {
+//   const { 
+//     components, 
+//     statusBooked, 
+//     adress, 
+//     pricePrimary, 
+//     priceDiscount } = el;
+
+//   divComp = document.qu
+// })
