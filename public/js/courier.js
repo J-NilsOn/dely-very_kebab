@@ -1,12 +1,9 @@
-const { header } = require("express-validator");
-
 const form = document.querySelector("#order");
 const btnAdress = document.querySelector("#adress");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const { pricePrimary, action, method } = e.target;
-  const { components } = e.target;
+  const { components, pricePrimary, action, method } = e.target;
   console.log(components.value);
   const response = await fetch(action, {
     method,
@@ -19,12 +16,12 @@ form.addEventListener("submit", async (e) => {
     }),
   });
 
-  // const result = await response.json();
-  // console.log(result);
-  // const p = document.createElement("p");
-  // p.innerText = `${result.adress}, ${result.components}, ${result.pricePrimary}, ${result.priceDiscount}, ${result.statusBooked}, ${result.statusSold}`;
-  // const orderElement = document.querySelector(".orderElement");
-  // orderElement.append(p);
+  const result = await response.json();
+  console.log(result);
+  const p = document.createElement("p");
+  p.innerText = `${result.adress}, ${result.components}, ${result.pricePrimary}, ${result.priceDiscount}, ${result.statusBooked}, ${result.statusSold}`;
+  const orderElement = document.querySelector(".orderElement");
+  orderElement.append(p);
 });
 
 // btnAdress.addEventListener("click", () => {});
