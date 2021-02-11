@@ -19,17 +19,23 @@ router
     // ],
     async (req, res) => {
       const { email, password, name, phone, city } = req.body;
-      console.log("2345234");
-      const user = new User({
-        email,
-        password: await bcrypt.hash(password, salt),
-        name,
-        phone,
-        city,
-      });
-      await user.save();
-      req.session.email = user.email;
-      res.redirect("/signup");
+      const check = await User.findOne({ email });
+      if (!check) {
+        const user = new User({
+          email,
+          password: await bcrypt.hash(password, salt),
+          name,
+          phone,
+          city,
+        });
+        await user.save();
+        req.session.email = user.email;
+        res.redirect("/signup");
+      } else {
+        res.render("signup", { mes: "The user exists" });
+      }
+      // console.log("2345234");
+      
     }
   );
 
