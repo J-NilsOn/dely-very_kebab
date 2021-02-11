@@ -1,0 +1,47 @@
+var result;
+
+window.onload = function() {
+    result = document.getElementById('result');
+	
+	// Если функциональность геолокации доступна, 
+	// пытаемся определить координаты посетителя
+	if (navigator.geolocation) {
+		// Передаем две функции
+		navigator.geolocation.getCurrentPosition(
+		            geolocationSuccess, geolocationFailure);
+		
+		// Выводим результат
+		result.innerHTML = "Поиск начался";
+	}
+	else {
+		// Выводим результат
+		result.innerHTML = "Ваш браузер не поддерживает геолокацию";
+	}
+}
+
+function geolocationSuccess(position) {
+	result.innerHTML = "Последний раз вас засекали здесь: " +
+	         position.coords.latitude + ", " + position.coords.longitude;
+}
+
+function geolocationFailure(positionError) {
+	result.innerHTML = "Ошибка геолокации";
+}
++++++++++++++++++++++++
+
+
+ document.getElementById('destroyButton').onclick = function () {
+        // Для уничтожения используется метод destroy.
+        myMap.destroy();
+    };
+
+    ymaps.geolocation.get({
+    // Зададим способ определения геолокации
+    // на основе ip пользователя.
+    provider: 'yandex',
+    // Включим автоматическое геокодирование результата.
+    autoReverseGeocode: true
+}).then(function (result) {
+    // Выведем результат геокодирования.
+    console.log(result.geoObjects.get(0).properties.get('metaDataProperty'));
+});
