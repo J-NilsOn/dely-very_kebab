@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 
 module.exports = mongoose.model("orders", {
   components: String,
-  statusBooked: {
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User'
-  },
+  statusBooked: Boolean,
   statusSold: Boolean,
   adress: String,
   pricePrimary: Number,
