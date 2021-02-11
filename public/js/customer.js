@@ -1,5 +1,19 @@
-// const Order = require("../models/order");
+// // const Order = require("../models/order");
+// const listOfOrders = await Order.find();
 
+// orders.forEach((el) => {
+//   const show = document.querySelector('components')
+//   show.append(el.components);
+//   // const { 
+//   //   components, 
+//   //   statusBooked, 
+//   //   adress, 
+//   //   pricePrimary, 
+//   //   priceDiscount } = el;
+
+//   // divComp = document.qu
+
+// })
 
 
 // const bttns = document.querySelector('.buy');
