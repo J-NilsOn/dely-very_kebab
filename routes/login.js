@@ -11,7 +11,9 @@ router
   })
 
   .post(async (req, res) => {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
+    email = email.toLowerCase();
+
     const user = await User.findOne({ email });
     // console.log(user);
 

@@ -38,6 +38,7 @@ module.exports.sessionVariables = async (req, res, next) => {
   if (req.session?.email) {
     res.locals.login = true;
     res.locals.userName = req.session.email;
+    res.locals.name = req.session.name;
 
     const user = await User.findOne({ email: req.session.email });
 

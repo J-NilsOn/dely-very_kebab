@@ -18,7 +18,10 @@ router
     //   check("phone").isMobilePhone(),
     // ],
     async (req, res) => {
-      const { email, password, name, phone, city } = req.body;
+      let { email, password, name, phone, city } = req.body;
+      console.log(email);
+      email = email.toLowerCase();
+
       const check = await User.findOne({ email });
       if (!check) {
         const user = new User({
