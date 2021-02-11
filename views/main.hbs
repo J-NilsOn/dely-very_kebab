@@ -1,76 +1,35 @@
 <h1>Welcome</h1>
 
-
-
 <div id="map" style="width: 400px; height: 300px"></div>
 
-<script type="text/javascript">
+<script defer type="text/javascript">
   ymaps.ready(init);
-
+  
   function init() {
     myMap = new ymaps.Map('map', {
       center: [59.92, 30.35],
       zoom: 11,
       controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
     },
-
-
-      {
-        searchControlProvider: 'yandex#search'
-      });
-
-
+    {
+      searchControlProvider: 'yandex#search'
+    })
+    
+    
     const button = document.querySelector('.addOrder')
+    
     button.addEventListener('click', (e) => {
       e.preventDefault()
-      navigator.geolocation.getCurrentPosition(
-        function (position) {
-          const thisPosition = [position.coords.latitude, position.coords.longitude]
-          console.log(thisPosition)
-        }
-        // Создаем геообъект с типом геометрии "Точка".
-        myGeoObject = new ymaps.GeoObject({
-          // Описание геометрии.
-          geometry: {
-            type: "Point",
-            coordinates: [55.8, 37.8]
-          },
-          // Свойства.
-          properties: {
-            // Контент метки.
-            iconContent: 'Пицца',
-            hintContent: 'Пицца "4 сыра" за 50% от цены'
-          }
-        }, {
-          // Опции.
-          // Иконка метки будет растягиваться под размер ее содержимого.
-          preset: 'islands#blackStretchyIcon',
-          // Метку можно перемещать.
-          draggable: false
-        })
-      );
-
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const thisPosition = [position.coords.latitude, position.coords.longitude]
+        console.log(thisPosition)
+      })
     })
   }
 </script>
 
 
 <button class="addOrder">add order</button>
-
-{{!-- 
-myMap.geoObjects
-
-       .add(new ymaps.Placemark([{{this.order}}], {
-        hasBaloon: false,
-        iconCaption: {{this.title}},
-        balloonContentBody: <a href='/info/{{this.id}}'>Подробнее о {{this.title}}</a>,
-        balloonContentFooter: {{this.country}},
-      }, {
-        preset: 'islands#icon',
-        iconColor: '#0095b6'
-      })) --}}
-
-{{!-- controls: [] // иконки на карте --}}
 
 
 {{>courier}}
