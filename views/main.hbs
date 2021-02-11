@@ -4,24 +4,35 @@
 
 <div id="map" style="width: 400px; height: 300px"></div>
 
- <script type="text/javascript">  
-ymaps.ready(init);
+<script type="text/javascript">
+  ymaps.ready(init);
 
-function init () {
-  
+  function init() {
+
     myMap = new ymaps.Map('map', {
-        center: [59.92, 30.35], 
-        zoom: 11
+      center: [59.92, 30.35],
+      zoom: 11
     }, {
-        searchControlProvider: 'yandex#search'
+      searchControlProvider: 'yandex#search'
     });
 
     document.getElementById('destroyButton').onclick = function () {
-        // Для уничтожения используется метод destroy.
-        myMap.destroy();
+      // Для уничтожения используется метод destroy.
+      myMap.destroy();
     };
 
-}
+  }
 </script>
 
-
+<div class="container">
+  <div class="form_orders">
+    <form id="order" action="">
+      <br>
+      <label>Состав заказа: <input type="text" name="components"></label>
+      {{!-- <label>Координаты: <input type="text" name="components"></label>
+      <input name="adress" type="button" value="Адрес" id="adress"><br><br> --}}
+      <label>Исходная цена: <input type="text" name="pricePrimary"></label>
+      <button id="add">Добавить</button>
+    </form>
+  </div>
+</div>
