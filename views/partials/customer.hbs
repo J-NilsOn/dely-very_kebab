@@ -1,5 +1,35 @@
-<div>
+<div id="list">
   {{#if customer}}
-  <p>Hello</p>
+    {{#each listOfOrders}}
+    <div id='element'>
+      
+      <div class="components">
+        {{components}}
+      </div>
+
+      <div class="statusBooked">
+        {{statusBooked}}
+      </div>
+
+      <div class="adress">
+        {{adress}}
+      </div>
+
+      <div class="pricePrimary">
+        {{pricePrimary}}
+      </div>
+
+      <div class="priceDiscount">
+        {{priceDiscount}}
+      </div>
+
+      <div class="button">
+        <button class='buy'></button>
+      </div>
+    </div>
+    {{/each}}
+
   {{/if}}
 </div>
+
+<script src="/js/customer.js"></script>
