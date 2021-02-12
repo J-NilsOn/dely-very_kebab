@@ -4,7 +4,7 @@
   {{#if courier }}
   <div class="container">
     <div class="form_orders">
-      <form id="order" action="">
+      <form id="order" action="/courier/new" method="POST">
         <br>
         <label>Состав заказа: <input type="text" name="components"></label>
         {{!-- <label>Координаты: <input type="text" name="components"></label>
@@ -12,6 +12,11 @@
         <label>Исходная цена: <input type="text" name="pricePrimary"></label>
         <button id="addOrder">Добавить</button>
       </form>
+    </div>
+    <div class="newOrders">
+      <div class="orderElement">
+
+      </div>
     </div>
   </div>
   {{/if}}
