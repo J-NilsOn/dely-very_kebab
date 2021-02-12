@@ -25,9 +25,7 @@ form.addEventListener("submit", async (e) => {
   const template = Handlebars.compile(hbs);
   list.innerHTML += template(order);
   const currentBtn = document.getElementById(`delete ${order._id}`);
-  currentBtn.addEventListener("click", () => {
-    console.log("ok");
-  });
+
   addDeleteListener(currentBtn);
 });
 

@@ -15,7 +15,6 @@ body {
   /* background-size: 1000px;
   background-color: #95606096; */
 
-
 .navBarHead {
   width: 680px;
   display: flex;
@@ -26,7 +25,6 @@ body {
   background-color: #95606096; */
 }
 .navbartext {
- 
   font-size: 40px;
   color: rgb(15, 5, 5);
 }
@@ -37,26 +35,22 @@ body {
 }
 
 .input {
-
   margin: 50px;
   margin-left: 15px;
   margin-right: 15px;
   weight: 200px;
   height: 25px;
-
 }
 
-.map{
-  
+.map {
   border: rgba(0, 0, 0, 0.733) 10px;
   border-radius: 20px;
 }
-
 
 .mainDiv {
   width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:#95606096;
+  background-color: #95606096;
 }
