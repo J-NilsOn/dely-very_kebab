@@ -20,7 +20,9 @@
 
   <div class="allOrdersContainer">
     {{#each listOfOrders}}
-    <div>
+    <div class="elementOrder">
+      <button id="delOrder" value="{{id}}">Удалить</button>
+      <button id="putOrder" value="{{id}}">Изменить</button>
       Заказ: {{components}},
       Статус брони: {{statusBooked}},
       Статус продано: {{statusSold}},
