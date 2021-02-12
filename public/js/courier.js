@@ -17,9 +17,9 @@ form.addEventListener("submit", async (e) => {
   });
 
   const result = await response.json();
-  console.log(result);
+  // console.log(result);
   const p = document.createElement("p");
-  p.innerText = `${result.adress}, ${result.components}, ${result.pricePrimary}, ${result.priceDiscount}, ${result.statusBooked}, ${result.statusSold}`;
+  p.innerText = `${result.number}, ${result.adress}, ${result.components}, ${result.pricePrimary}, ${result.priceDiscount}, ${result.statusBooked}, ${result.statusSold}`;
   const orderElement = document.querySelector(".orderElement");
   orderElement.append(p);
 });

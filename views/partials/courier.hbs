@@ -1,25 +1,35 @@
-
-
-<div>
+<div classs="container">
   {{#if courier }}
-  <div class="container">
+  <div class="newOrderContainer">
     <div class="form_orders">
-      <form id="order" action="/courier/new" method="POST">
+      <form id="order" action="/courier" method="POST">
         <br>
         <label>Состав заказа: <input type="text" name="components"></label>
-        {{!-- <label>Координаты: <input type="text" name="components"></label>
-      <input name="adress" type="button" value="Адрес" id="adress"><br><br> --}}
         <label>Исходная цена: <input type="text" name="pricePrimary"></label>
         <button id="addOrder">Добавить</button>
       </form>
     </div>
     <div class="newOrders">
+      {{!-- <button id="delOrder" value="{{id}}">Удалить</button>
+      <button id="putOrder" value="{{id}}">Изменить</button> --}}
       <div class="orderElement">
 
       </div>
     </div>
   </div>
   {{/if}}
+
+  <div class="allOrdersContainer">
+    {{#each listOfOrders}}
+    <div>
+      Заказ: {{components}},
+      Статус брони: {{statusBooked}},
+      Статус продано: {{statusSold}},
+      Цена: {{pricePrimary}},
+      Цена со скидкой: {{priceDiscount}};
+    </div>
+    {{/each}}
+  </div>
 </div>
 
 
