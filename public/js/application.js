@@ -1,7 +1,7 @@
 const form = document.querySelector("form");
 
 const delBtns = document.querySelectorAll("#delOrder");
-addDeleteListner(delBtns);
+addDeleteListener(delBtns);
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
