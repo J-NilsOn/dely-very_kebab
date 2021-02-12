@@ -1,4 +1,4 @@
-function addDeleteListner(butons) {
+function addDeleteListener(butons) {
   if (butons.length) {
     delBtns.forEach((btn) => {
       btn.addEventListener("click", async ({ target }) => {
