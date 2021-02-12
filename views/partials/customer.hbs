@@ -1,34 +1,34 @@
 <div id="list">
-  <h1>Hello, {{names}} </p>
+  {{!-- <h1>Hello, {{names}} </h1> --}}
 
-    {{#each listOfOrders}}
-    <div class='element'>
-      
-      <div class="components">
-        {{components}}
-      </div>
+  {{#each listOfOrders}}
+  <div class='element'>
 
-      <div class="statusBooked">
-        {{statusBooked}}
-      </div>
-
-      <div class="adress">
-        {{adress}}
-      </div>
-
-      <div class="pricePrimary">
-        {{pricePrimary}}
-      </div>
-
-      <div class="priceDiscount">
-        {{priceDiscount}}
-      </div>
-
-      <div class="button">
-        <button class='buy'></button>
-      </div>
+    <div class="components">
+      {{components}}
     </div>
-    {{/each}}
+
+    <div class="statusBooked">
+      {{statusBooked}}
+    </div>
+
+    <div class="adress">
+      {{adress}}
+    </div>
+
+    <div class="pricePrimary">
+      {{pricePrimary}}
+    </div>
+
+    <div class="priceDiscount">
+      {{priceDiscount}}
+    </div>
+
+    <div class="button">
+      <button class='buy'></button>
+    </div>
+  </div>
+  {{/each}}
 
 </div>
 
