@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-
-=======
-<h1 class="kebab"></h1>
->>>>>>> 2b080cb793e9648876927f8842ee2579f772f8eb
-<div id="map" style="width: 700px; height: 500px"></div>
-
-
-<script defer>
-  ymaps.ready(init);
+ymaps.ready(init);
 function init() {
   myMap = new ymaps.Map(
     "map",
@@ -64,12 +55,7 @@ console.log(thisPosition);
   }
 }
 
-<form>
-  <input class="input" name="text" placeholder="text">
-  <button class="addOrder">РАЗМЕСТИТЬ</button>
-</form>
-
-</script>
-
-{{>courier}}
-{{>customer}}
+// <form>
+// <input class="input" name="text" placeholder="text">
+// <button class="addOrder input">add order</button>
+// </form>

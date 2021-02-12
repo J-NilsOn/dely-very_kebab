@@ -1,43 +1,66 @@
-// // const Order = require("../models/order");
-// const listOfOrders = await Order.find();
-
-// orders.forEach((el) => {
-//   const show = document.querySelector('components')
-//   show.append(el.components);
-//   // const { 
-//   //   components, 
-//   //   statusBooked, 
-//   //   adress, 
-//   //   pricePrimary, 
-//   //   priceDiscount } = el;
-
-//   // divComp = document.qu
-
-// })
+const buyBtns = document.querySelectorAll(".buy");
+const cancelBtns = document.querySelectorAll(".cancel");
+const divOrdered = document.querySelector('.ordered');
+const divNotOrdered = document.querySelector('.notOrdered');
+// customerBttns(buyBtns);
+// customerBttns(cancelBtns);
 
 
-// const bttns = document.querySelector('.buy');
+// function customerBttns(button) {
+  // if (button.length) {
+    buyBtns.forEach((btn) => {
+      btn.addEventListener('click', async ({target}) => {
+        const number = target;
+        console.log('number', number);
+        const parent = target.parentElement.parentElement;
 
-// bttns.addEventListener('click', (event) => {
-//   e.preventDefault();
+        console.log('text', parent.children[0].text);
 
+        const number = documentgetElementById('test')
 
-//   const parent = event.target.parentElement;
-//   parent.remove();
+        console.log(div.children);
 
-// })
+        const response = await fetch('/customer', {
+          method: 'POST',
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ number: `${Number(number)}` }),
+        })
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          divOrdered.append(div);
+          div.remove();
+        } else {
+          alert('Status isn\'t changed');
+        }
+      })
+    }) 
+  // }
+// }
 
+cancelBtns.forEach((btn) => {
+  btn.addEventListener('click', async ({target}) => {
+    const {value} = target;
+    const div = target.parentElement;
 
-
-// const orders = await Order.find();
-
-// orders.forEach((el) => {
-//   const { 
-//     components, 
-//     statusBooked, 
-//     adress, 
-//     pricePrimary, 
-//     priceDiscount } = el;
-
-//   divComp = document.qu
-// })
+    const response = await fetch('/customer', {
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ id: value }),
+    })
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      divNotOrdered.append(div);
+      div.remove();
+    } else {
+      alert(result.message);
+    }
+  })
+}) 

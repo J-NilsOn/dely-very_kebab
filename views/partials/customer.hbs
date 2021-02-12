@@ -1,35 +1,66 @@
-<div id="list">
-  {{!-- <h1>Hello, {{names}} </h1> --}}
+<div id="listGeneral">
 {{#if customer}}
-  {{#each listOfOrders}}
-  <div class='element'>
 
-    <div class="components">
-      {{components}}
-    </div>
+  <div class="ordered">
+    {{#each orderedList}}
+    <div class='element'>
+      <div class='hidden'>
+        {{number}}
+      </div>
 
-    <div class="statusBooked">
-      {{statusBooked}}
-    </div>
+      <div class="components">
+        {{components}}
+      </div>
 
-    <div class="adress">
-      {{adress}}
-    </div>
+      <div class="statusBooked">
+        {{statusBooked}}
+      </div>
 
-    <div class="pricePrimary">
-      {{pricePrimary}}
-    </div>
+      <div class="pricePrimary">
+        {{pricePrimary}}
+      </div>
 
-    <div class="priceDiscount">
-      {{priceDiscount}}
-    </div>
+      <div class="priceDiscount">
+        {{priceDiscount}}
+      </div>
 
-    <div class="button">
-      <button class='buy'></button>
+      <div class="button cancel">
+        <button class='cancel'>Отказаться</button>
+      </div>
     </div>
+    {{/each}}
+
   </div>
-  {{/each}}
+
+  <div class="notOrdered">
+  {{#each notOrderedList}}
+    <div class='element'>
+      <div class='hidden'>
+        {{number}}
+      </div>
+
+      <div class="components">
+        {{components}}
+      </div>
+
+      <div class="statusBooked">
+        {{statusBooked}}
+      </div>
+
+      <div class="pricePrimary">
+        {{pricePrimary}}
+      </div>
+
+      <div class="priceDiscount">
+        {{priceDiscount}}
+      </div>
+
+      <div class="button buy">
+        <button class='buy'>Заказать</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  
 {{/if}}
 </div>
-
-<script src="/js/customer.js"></script>

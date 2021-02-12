@@ -8,7 +8,9 @@ const { sessionConfig } = require("./middleware/session");
 const { routerConfig } = require("./middleware/routerConfig");
 const { dbConnect } = require("./misc/mongoose");
 const { partialsReg } = require("./misc/hbs");
+const path = require('path');
 
+app.use(express.static(path.join(__dirname,"public")));
 appConfig(app);
 sessionConfig(app);
 routerConfig(app);
