@@ -9,7 +9,6 @@ router
     const listOfOrders = await Order.find();
     res.render("main", { listOfOrders });
   })
-  // router.route("/new")
   .post(async (req, res) => {
     let { components, pricePrimary } = req.body;
 
@@ -19,17 +18,18 @@ router
       pricePrimary,
       priceDiscount: Math.floor(pricePrimary * 0.5),
     });
-    // .delete(async(req, res) => {
-    //   const { id } = req.body;
-    //   try {
-    //       await User.findByIdAndDelete(id)
-    //       res.status(200).json({ success: true, message: 'Deleted' })
-    //   } catch (error) {
-    //       res.status(404).json({ success: false, message: error.message })
-    //   }
 
     await newOrder.save();
     res.json(newOrder);
+  })
+  .delete(async (req, res) => {
+    const { id } = req.body;
+    try {
+      await Order.findByIdAndDelete(id);
+      res.status(200).json({ success: true, message: "Deleted" });
+    } catch (error) {
+      res.status(404).json({ success: false, message: error.message });
+    }
   });
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const form = document.querySelector("#order");
 const btnAdress = document.querySelector("#adress");
+const btdDelOrder = document.querySelector("#delOrder");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -15,6 +16,8 @@ form.addEventListener("submit", async (e) => {
       pricePrimary: pricePrimary.value,
     }),
   });
+
+  btdDelOrder.addEventListener("click", async (e) => {});
 
   const result = await response.json();
   // console.log(result);
