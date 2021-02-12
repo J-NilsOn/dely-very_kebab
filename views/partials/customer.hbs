@@ -1,6 +1,6 @@
 <div id="list">
   {{!-- <h1>Hello, {{names}} </h1> --}}
-
+{{#if customer}}
   {{#each listOfOrders}}
   <div class='element'>
 
@@ -29,7 +29,7 @@
     </div>
   </div>
   {{/each}}
-
+{{/if}}
 </div>
 
 <script src="/js/customer.js"></script>
