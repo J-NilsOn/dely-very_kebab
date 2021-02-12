@@ -9,6 +9,7 @@ router.route("/").get(sessionVariables, (req, res) => {
   } else if (res.locals.courier) {
     res.redirect("/courier");
   }
+
   res.render("main");
 });
 
