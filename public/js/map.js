@@ -12,15 +12,16 @@ function init() {
     }
   );
   {
-    const form = document.querySelector("#addOrder");
+    const form = document.querySelector("#order");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      let { text } = e.target;
-      console.log(text);
+      let { components } = e.target;
+    
       const getGeo = () => {
         return new Promise((resolve, reject) => {
           navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position);
             const thisPosition = [
               position.coords.latitude,
               position.coords.longitude,
@@ -31,7 +32,7 @@ function init() {
       };
 
       const thisPosition = await getGeo();
-
+console.log(thisPosition);
       myGeoObject = new ymaps.GeoObject(
         {
           geometry: {
@@ -39,7 +40,7 @@ function init() {
             coordinates: thisPosition,
           },
           properties: {
-            iconContent: text.value,
+            iconContent: components.value,
             hintContent: "sale 50%",
           },
         },
